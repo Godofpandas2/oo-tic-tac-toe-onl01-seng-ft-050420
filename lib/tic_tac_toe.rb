@@ -66,7 +66,8 @@ class TicTacToe
   end
 
   def won?
-
+    WIN_COMBINATIONS.any? do |combos|
+      if position_taken?
   end
 
   def full?
