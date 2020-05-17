@@ -45,16 +45,17 @@ class TicTacToe
   end
 
   def turn
-    puts "Welcome, please pick a number of 1-9"
-    user_input = gets.chomp
-  index = input_to_index(user_input)
-  if valid_move?(index)
-    move(index, current_player)
-    display_board
-  else
-    turn
-  end
-end
+      puts "Enter a number from 1 to 9:"
+      position = gets
+    new_index= input_to_index(position)
+      if valid_move?(new_index)
+        token= current_player
+        move(new_index, token)
+      else
+        turn
+      end
+        display_board
+  end 
 
   def turn_count
     @board.count {|marker| marker == "X" || marker == "O"}
