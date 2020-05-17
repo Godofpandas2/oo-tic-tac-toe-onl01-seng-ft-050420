@@ -45,7 +45,7 @@ class TicTacToe
   end
 
   def turn
-      puts "Enter a number from 1 to 9:"
+      puts "Please input a number that is 1-9:"
       position = gets
     new_index= input_to_index(position)
       if valid_move?(new_index)
@@ -70,19 +70,29 @@ class TicTacToe
   end
 
   def full?
-
+    @board.all?{|open_space| open_space !=" "}
   end
 
   def draw?
+    full? && !won?
+  end
 
+  def over?
+    draw? || won?
   end
 
   def winner
-
+    if winner= won?
+    @board[winner[0]]
+    end
   end
 
   def play
-
+   turn until over?
+   if  won?
+       puts "Congratulations #{winner}!"
+     else
+       puts "Cat's Game!"
+   end
   end
-
 end
