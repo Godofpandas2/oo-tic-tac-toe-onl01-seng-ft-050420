@@ -55,7 +55,7 @@ class TicTacToe
         turn
       end
         display_board
-  end 
+  end
 
   def turn_count
     @board.count {|marker| marker == "X" || marker == "O"}
