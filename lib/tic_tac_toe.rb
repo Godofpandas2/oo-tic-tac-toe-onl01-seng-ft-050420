@@ -1,9 +1,9 @@
 class TicTacToe
   def initialize
     @board= [" ", " ", " ", " ", " ", " ", " ", " ", " ",]
-
+    
   end
-
+   
   WIN_COMBINATIONS=[
       [0,1,2],
       [3,4,5],
@@ -24,7 +24,7 @@ class TicTacToe
   end
 
   def input_to_index(number)
-    int= number.to_i
+    int= number.to_i 
     @index= int - 1
     @index
   end
@@ -41,7 +41,7 @@ class TicTacToe
         true
     end
   end
-
+  
   def valid_move?(number)
      if @board[number] == " " && number.between?(0,8)
         true
@@ -64,9 +64,9 @@ class TicTacToe
         "O"
     end
   end
-
+  
   def turn
-    puts "Please enter a number from 1 to 9:"
+    puts "Enter a number from 1 to 9:"
     position = gets
   new_index= input_to_index(position)
     if valid_move?(new_index)
@@ -76,43 +76,43 @@ class TicTacToe
     turn
     end
     display_board
-  end
+  end 
 
-  def won?
-
-    WIN_COMBINATIONS.any? do |combination|
-      if position_taken?(array[0]) && @board[combination[0]] == @board[combination[1]] && @board[combination[1]] == @board[combination[2]]
+  def won? 
+    
+    WIN_COMBINATIONS.any? do |array|
+      if position_taken?(array[0]) && @board[array[0]] == @board[array[1]] && @board[array[1]] == @board[array[2]]
        return array
     end
    end
   end
-
+ 
   def full?
      @board.all?{|space|space !=" "}
   end
-
+  
   def draw?
     full? && !won?
   end
 
-  def over?
+  def over? 
     draw? || won?
   end
 
   def winner
-    if winner= won?
+    if winner= won? 
     @board[winner[0]]
     end
   end
 
    def play
     turn until over?
-
+      
     if  won?
         puts "Congratulations #{winner}!"
       else
-        puts "It's a draw!"
+        puts "Cat's Game!"
     end
-
+    
    end
 end
